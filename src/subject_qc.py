@@ -44,7 +44,7 @@ def count_subjects(name, root_dir):
 
 
     subjects = sorted([p for p in root.iterdir() if p.is_dir() and p.name.startswith("sub-")])
-    print(f"Found {len(subjects)} subject folders starting with 'sub-'")
+    #print(f"Found {len(subjects)} subject folders starting with 'sub-'")
 
     valid_subject_ids = []
 
@@ -63,16 +63,39 @@ def count_subjects(name, root_dir):
 
     return valid_subject_ids
 
+def FD (name, root_dir, subj_id):
+    
+    # This function removes subjects with high FD motion,
+    # Input: Project name and folder location and the list of subject Ids.
+    # Output: Number of subjects left after removing the problematic ones.
+
+        root = Path(root_dir)
+
+        if not root.exists() or not root.is_dir():
+            raise ValueError(f"Invalid folder path: {root_dir}")
+
+        # required patterns relative to each subject folder
+        confounds_file =  "func/sub-*_task-rest_desc-confounds_timeseries.tsv"
+        
+
 
 def main ():
 
+    ### Define Stuff ----------------------------------
     stricon_folder_location = "/mnt/nfs/stricon_data/stricon_resting_state/derivatives_new"
     velas_folder_location = "/mnt/nfs/stricon_data/VELAS_data"
+
+    sus_subjects_stricon = [19,21,48]  # Solely based on Registration
+    sus_subjects_velas = [75,400,489,724,800,1031,1220,1344,1347,1403,2101,2210,2218,2222]  # Based on Registration alone
+
+    ###------------------------------------
 
     total_stricon_folders = count_subjects("STRICON", stricon_folder_location)
     total_velas_folder = count_subjects("VELAS", velas_folder_location)
 
     print(f"For Stricon we have {len(total_stricon_folders)} and for VELAS we have {len(total_velas_folder)}")
+
+    
 
 
 main()
