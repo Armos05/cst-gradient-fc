@@ -101,35 +101,33 @@ def FD_exclusion (name, root_dir):
         
 
 
-def main ():
+def final_subject_list(name, root_dir, exclusion_subjects):
 
-    ### Define Stuff ----------------------------------
-    stricon_folder_location = "/mnt/nfs/stricon_data/stricon_resting_state/derivatives_new"
-    velas_folder_location = "/mnt/nfs/stricon_data/VELAS_data"
+    # This function gives the final list of usable subjects.
+    # Input: Project name and folder location and the list of excluded subject Ids.
+    # Output: Final subject id lists
 
-    sus_subjects_stricon = [8,18,19,21,48]  # Solely based on Registration
-    sus_subjects_velas = [75,400,489,724,800,1031,1220,1344,1347,1403,2101,2210,2218,2222]  # Based on Registration alone
+    root = Path(root_dir)
 
-    ###------------------------------------
-
-    # Step:1 Count the number of subjects we have
-    #total_stricon_folders = count_subjects("STRICON", stricon_folder_location)
-    #total_velas_folder = count_subjects("VELAS", velas_folder_location)
-
-    #print(f"For Stricon we have {len(total_stricon_folders)} and for VELAS we have {len(total_velas_folder)}")
-
-    ## Step:2 Remove subjects based on high Framewise displacement.
-    bad_stricon_subjects = FD_exclusion("STRICON", stricon_folder_location)
-    bad_velas_subjects = FD_exclusion("VELAS", velas_folder_location)
-
-    #print(f"For Stricon we removed {len(bad_stricon_subjects)} subjects and they are {bad_stricon_subjects}")
-    #print(f"For VELAS we removed {len(bad_velas_subjects)} subjects and they are {bad_velas_subjects}")
-
-    total_bad_subjects_stricon = sus_subjects_stricon + bad_stricon_subjects
-    total_bad_subjects_velas = sus_subjects_velas + bad_velas_subjects
+    if not root.exists() or not root.is_dir():
+        raise ValueError(f"Invalid folder path: {root_dir}")
     
+    subjects_to_keep = []
+    
+        
+    # All Subjects
+    subjects = sorted([p for p in root.iterdir() if p.is_dir() and p.name.startswith("sub-")])
+    
+    for subj in subjects:
+
+        p = Path(subj)
+        subj_num = p.name.replace("sub-", "")
+        if subj_num not in exclusion_subjects:
+            subjects_to_keep.append(subj)
+
+    return subjects_to_keep
 
 
-main()
+                      
 
 

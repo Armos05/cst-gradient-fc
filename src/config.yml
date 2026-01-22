@@ -1,0 +1,6 @@
+# Define stuff here
+
+stricon_folder_location : "/mnt/nfs/stricon_data/stricon_resting_state/derivatives_new"
+velas_folder_location : "/mnt/nfs/stricon_data/VELAS_data"
+sus_subjects_stricon : [8,18,19,21,48]  # Solely based on Registration
+sus_subjects_velas : [75,400,489,724,800,1031,1220,1344,1347,1403,2101,2210,2218,2222]  # Based on Registration alone
