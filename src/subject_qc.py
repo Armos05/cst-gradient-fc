@@ -63,7 +63,7 @@ def count_subjects(name, root_dir):
 
     return valid_subject_ids
 
-def FD (name, root_dir, subj_id):
+def FD_exclusion (name, root_dir):
     
     # This function removes subjects with high FD motion,
     # Input: Project name and folder location and the list of subject Ids.
@@ -73,9 +73,31 @@ def FD (name, root_dir, subj_id):
 
         if not root.exists() or not root.is_dir():
             raise ValueError(f"Invalid folder path: {root_dir}")
-
+    
+        
+        # All Subjects
+        subjects = sorted([p for p in root.iterdir() if p.is_dir() and p.name.startswith("sub-")])
+        bad_subjects = [ ]
         # required patterns relative to each subject folder
-        confounds_file =  "func/sub-*_task-rest_desc-confounds_timeseries.tsv"
+        for subj in subjects:
+
+            # Extracting subject number
+            p = Path(subj)
+            subj_num = p.name.replace("sub-", "")
+            
+            confounds_file = p / "func" / f"sub-{subj_num}_task-rest_desc-confounds_timeseries.tsv"
+            conf_df = pd.read_csv(confounds_file, sep = '\t')
+
+            # number of time points greater than FD threshold (0.5 times of resolution)
+            percent = (conf_df['framewise_displacement'] > 0.5).mean() * 100
+            #print(f'For subject {subj_num} the percentage is {percent}')
+
+            if percent > 20:
+
+                bad_subjects.append(subj_num)
+
+
+        return bad_subjects
         
 
 
@@ -85,16 +107,26 @@ def main ():
     stricon_folder_location = "/mnt/nfs/stricon_data/stricon_resting_state/derivatives_new"
     velas_folder_location = "/mnt/nfs/stricon_data/VELAS_data"
 
-    sus_subjects_stricon = [19,21,48]  # Solely based on Registration
+    sus_subjects_stricon = [8,18,19,21,48]  # Solely based on Registration
     sus_subjects_velas = [75,400,489,724,800,1031,1220,1344,1347,1403,2101,2210,2218,2222]  # Based on Registration alone
 
     ###------------------------------------
 
-    total_stricon_folders = count_subjects("STRICON", stricon_folder_location)
-    total_velas_folder = count_subjects("VELAS", velas_folder_location)
+    # Step:1 Count the number of subjects we have
+    #total_stricon_folders = count_subjects("STRICON", stricon_folder_location)
+    #total_velas_folder = count_subjects("VELAS", velas_folder_location)
 
-    print(f"For Stricon we have {len(total_stricon_folders)} and for VELAS we have {len(total_velas_folder)}")
+    #print(f"For Stricon we have {len(total_stricon_folders)} and for VELAS we have {len(total_velas_folder)}")
 
+    ## Step:2 Remove subjects based on high Framewise displacement.
+    bad_stricon_subjects = FD_exclusion("STRICON", stricon_folder_location)
+    bad_velas_subjects = FD_exclusion("VELAS", velas_folder_location)
+
+    #print(f"For Stricon we removed {len(bad_stricon_subjects)} subjects and they are {bad_stricon_subjects}")
+    #print(f"For VELAS we removed {len(bad_velas_subjects)} subjects and they are {bad_velas_subjects}")
+
+    total_bad_subjects_stricon = sus_subjects_stricon + bad_stricon_subjects
+    total_bad_subjects_velas = sus_subjects_velas + bad_velas_subjects
     
 
 
