@@ -1,6 +1,8 @@
 import argparse
 import yaml
 from subject_qc import count_subjects, FD_exclusion, final_subject_list
+from fmri_denoise import denoise_dataset
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
 
 
@@ -15,7 +17,9 @@ def load_config():
 def main():
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--preproc", action="store_true",help="prepares a list of subjects which are suitable for analysis")
+    parser.add_argument("--subject_list", action="store_true",help="prepares a list of subjects which are suitable for analysis")
+    parser.add_argument("--preproc", action="store_true", help = "Does minimal pre-processing on the data")
+
     
 
     args = parser.parse_args()
@@ -24,7 +28,7 @@ def main():
     cfg = load_config()
 
     # Step:1 Count the number of subjects we have
-    if args.preproc:
+    if args.subject_list:
 
         print("Preparing a list of all subjects suitable for analysis")
         
@@ -49,6 +53,50 @@ def main():
         final_velas_subjects = final_subject_list("VELAS", cfg['velas_folder_location'], total_bad_subjects_velas)
 
         print(f'Finally we are left with {len(final_stricon_subjects)} STRICON subjects and {len(final_velas_subjects)} VELAS subjects')
+
+    
+    if args.preproc:
+
+        # Run if you want to pre-process data, do it only once:
+        print("Running resting-state denoising for STRICON and VELAS in parallel")
+
+        jobs = [
+            dict(
+                dataset_name="STRICON",
+                deriv_root=final_stricon_subjects,
+                out_root=cfg["stricon_preproc_folder"],
+                tr = 1.17,
+                hp=0.008,
+                lp=0.09,
+                smooth_fwhm=4.0,
+                n_acompcor=5,
+                overwrite=False,
+            ),
+            dict(
+                dataset_name="VELAS",
+                deriv_root=final_velas_subjects,
+                out_root=cfg["velas_preproc_folder"],
+                tr = 1.17,
+                hp=0.008,
+                lp=0.09,
+                smooth_fwhm=4.0,
+                n_acompcor=5,
+                overwrite=False,
+            ),
+        ]
+
+        # 2 workers = run STRICON + VELAS simultaneously
+        with ProcessPoolExecutor(max_workers=2) as ex:
+            futures = {ex.submit(denoise_dataset, **job): job["dataset_name"] for job in jobs}
+
+            for fut in as_completed(futures):
+                name = futures[fut]
+                try:
+                    fut.result()
+                    print(f"{name}: completed successfully.")
+                except Exception as e:
+                    print(f"{name}: FAILED -> {e}")
+                    raise
 
 
 
