@@ -7,3 +7,4 @@ sus_subjects_velas : [75,400,489,724,800,1031,1220,1344,1347,1403,2101,2210,2218
 stricon_preproc_folder : "/mnt/data/CST_loops/Stricon"
 velas_preproc_folder : "/mnt/data/CST_loops/Velas"
 roi_excel_file: "/mnt/nfs/stricon_data/gPPI/CST_loops/Rois.xlsx"
+roi_csv_file: "/mnt/nfs/stricon_data/gPPI/CST_loops/new_rois.csv"
