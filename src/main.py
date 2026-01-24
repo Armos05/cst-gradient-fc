@@ -3,6 +3,7 @@ import yaml
 from subject_qc import count_subjects, FD_exclusion, final_subject_list
 from fmri_denoise import denoise_dataset
 from concurrent.futures import ProcessPoolExecutor, as_completed
+from process_excel_file import build_roi_dataframe
 from pathlib import Path
 
 
@@ -19,11 +20,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--subject_list", action="store_true",help="prepares a list of subjects which are suitable for analysis")
     parser.add_argument("--preproc", action="store_true", help = "Does minimal pre-processing on the data")
-
+    parser.add_argument("--out_csv",action="store_true", help="Optional path to save expanded CSV")
+    #parser.add_argument("--correlation",action="store_true", help = "Find the seed based correlation between regions" )
     
 
     args = parser.parse_args()
-
     #Load the config file:
     cfg = load_config()
 
@@ -97,6 +98,17 @@ def main():
                 except Exception as e:
                     print(f"{name}: FAILED -> {e}")
                     raise
+
+    
+    rois = build_roi_dataframe(cfg['roi_excel_file'])
+    print(rois.head(20).to_string(index=False))
+    print(f"\nTotal ROIs after expansion: {len(rois)}")
+
+    if args.out_csv:
+        out_path = Path("/mnt/nfs/stricon_data/gPPI/CST_loops/new_rois.csv")
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        rois.to_csv(out_path, index=False)
+        print(f"Saved CSV: {out_path}")
 
 
 
