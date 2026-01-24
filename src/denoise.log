@@ -1,0 +1,439 @@
+Preparing a list of all subjects suitable for analysis
+For Stricon we have 98 and for VELAS we have 118
+For Stricon we removed 5 subjects and they are ['15', '35', '58', '81', '84']
+For VELAS we removed 2 subjects and they are ['0075', '2214']
+Finally we are left with 93 STRICON subjects and 116 VELAS subjects
+Running resting-state denoising for STRICON and VELAS in parallel
+[VELAS] Found 116 subjects
+Currently processing for VELAS: sub-0029
+[VELAS] sub-0029: denoising
+Currently processing for VELAS: sub-0043
+[VELAS] sub-0043: denoising
+Currently processing for VELAS: sub-0057
+[VELAS] sub-0057: denoising
+Currently processing for VELAS: sub-0067
+[VELAS] sub-0067: denoising
+Currently processing for VELAS: sub-0076
+[VELAS] sub-0076: denoising
+  Note: only 3 aCompCor found (requested 5); using available.
+Currently processing for VELAS: sub-0093
+[VELAS] sub-0093: denoising
+Currently processing for VELAS: sub-0127
+[VELAS] sub-0127: denoising
+Currently processing for VELAS: sub-0137
+[VELAS] sub-0137: denoising
+Currently processing for VELAS: sub-0142
+[VELAS] sub-0142: denoising
+Currently processing for VELAS: sub-0159
+[VELAS] sub-0159: denoising
+Currently processing for VELAS: sub-0177
+[VELAS] sub-0177: denoising
+Currently processing for VELAS: sub-0225
+[VELAS] sub-0225: denoising
+Currently processing for VELAS: sub-0276
+[VELAS] sub-0276: denoising
+Currently processing for VELAS: sub-0286
+[VELAS] sub-0286: denoising
+Currently processing for VELAS: sub-0289
+[VELAS] sub-0289: denoising
+Currently processing for VELAS: sub-0360
+[VELAS] sub-0360: denoising
+Currently processing for VELAS: sub-0400
+[VELAS] sub-0400: denoising
+  Note: only 3 aCompCor found (requested 5); using available.
+Currently processing for VELAS: sub-0404
+[VELAS] sub-0404: denoising
+Currently processing for VELAS: sub-0417
+[VELAS] sub-0417: denoising
+Currently processing for VELAS: sub-0436
+[VELAS] sub-0436: denoising
+Currently processing for VELAS: sub-0451
+[VELAS] sub-0451: denoising
+Currently processing for VELAS: sub-0489
+[VELAS] sub-0489: denoising
+Currently processing for VELAS: sub-0535
+[VELAS] sub-0535: denoising
+Currently processing for VELAS: sub-0551
+[VELAS] sub-0551: denoising
+Currently processing for VELAS: sub-0560
+[VELAS] sub-0560: denoising
+Currently processing for VELAS: sub-0563
+[VELAS] sub-0563: denoising
+Currently processing for VELAS: sub-0613
+[VELAS] sub-0613: denoising
+Currently processing for VELAS: sub-0627
+[VELAS] sub-0627: denoising
+Currently processing for VELAS: sub-0711
+[VELAS] sub-0711: denoising
+Currently processing for VELAS: sub-0724
+[VELAS] sub-0724: denoising
+Currently processing for VELAS: sub-0728
+[VELAS] sub-0728: denoising
+Currently processing for VELAS: sub-0794
+[VELAS] sub-0794: denoising
+Currently processing for VELAS: sub-0800
+[VELAS] sub-0800: denoising
+Currently processing for VELAS: sub-0801
+[VELAS] sub-0801: denoising
+Currently processing for VELAS: sub-0818
+[VELAS] sub-0818: denoising
+Currently processing for VELAS: sub-0826
+[VELAS] sub-0826: denoising
+Currently processing for VELAS: sub-0843
+[VELAS] sub-0843: denoising
+Currently processing for VELAS: sub-0861
+[VELAS] sub-0861: denoising
+Currently processing for VELAS: sub-0867
+[VELAS] sub-0867: denoising
+Currently processing for VELAS: sub-0877
+[VELAS] sub-0877: denoising
+Currently processing for VELAS: sub-0933
+[VELAS] sub-0933: denoising
+Currently processing for VELAS: sub-0964
+[VELAS] sub-0964: denoising
+Currently processing for VELAS: sub-0974
+[VELAS] sub-0974: denoising
+Currently processing for VELAS: sub-1014
+[VELAS] sub-1014: denoising
+Currently processing for VELAS: sub-1031
+[VELAS] sub-1031: denoising
+Currently processing for VELAS: sub-1091
+[VELAS] sub-1091: denoising
+Currently processing for VELAS: sub-1095
+[VELAS] sub-1095: denoising
+  Note: only 2 aCompCor found (requested 5); using available.
+Currently processing for VELAS: sub-1105
+[VELAS] sub-1105: denoising
+  Note: only 4 aCompCor found (requested 5); using available.
+Currently processing for VELAS: sub-1108
+[VELAS] sub-1108: denoising
+Currently processing for VELAS: sub-1113
+[VELAS] sub-1113: denoising
+Currently processing for VELAS: sub-1117
+[VELAS] sub-1117: denoising
+Currently processing for VELAS: sub-1141
+[VELAS] sub-1141: denoising
+Currently processing for VELAS: sub-1143
+[VELAS] sub-1143: denoising
+Currently processing for VELAS: sub-1147
+[VELAS] sub-1147: denoising
+Currently processing for VELAS: sub-1184
+[VELAS] sub-1184: denoising
+Currently processing for VELAS: sub-1190
+[VELAS] sub-1190: denoising
+Currently processing for VELAS: sub-1203
+[VELAS] sub-1203: denoising
+Currently processing for VELAS: sub-1207
+[VELAS] sub-1207: denoising
+Currently processing for VELAS: sub-1215
+[VELAS] sub-1215: denoising
+Currently processing for VELAS: sub-1220
+[VELAS] sub-1220: denoising
+Currently processing for VELAS: sub-1222
+[VELAS] sub-1222: denoising
+Currently processing for VELAS: sub-1241
+[VELAS] sub-1241: denoising
+Currently processing for VELAS: sub-1248
+[VELAS] sub-1248: denoising
+Currently processing for VELAS: sub-1267
+[VELAS] sub-1267: denoising
+Currently processing for VELAS: sub-1283
+[VELAS] sub-1283: denoising
+Currently processing for VELAS: sub-1284
+[VELAS] sub-1284: denoising
+Currently processing for VELAS: sub-1287
+[VELAS] sub-1287: denoising
+Currently processing for VELAS: sub-1300
+[VELAS] sub-1300: denoising
+Currently processing for VELAS: sub-1310
+[VELAS] sub-1310: denoising
+Currently processing for VELAS: sub-1311
+[VELAS] sub-1311: denoising
+Currently processing for VELAS: sub-1314
+[VELAS] sub-1314: denoising
+Currently processing for VELAS: sub-1322
+[VELAS] sub-1322: denoising
+Currently processing for VELAS: sub-1324
+[VELAS] sub-1324: denoising
+Currently processing for VELAS: sub-1344
+[VELAS] sub-1344: denoising
+Currently processing for VELAS: sub-1347
+[VELAS] sub-1347: denoising
+Currently processing for VELAS: sub-1403
+[VELAS] sub-1403: denoising
+Currently processing for VELAS: sub-1406
+[VELAS] sub-1406: denoising
+Currently processing for VELAS: sub-1415
+[VELAS] sub-1415: denoising
+Currently processing for VELAS: sub-2100
+[VELAS] sub-2100: denoising
+Currently processing for VELAS: sub-2101
+[VELAS] sub-2101: denoising
+Currently processing for VELAS: sub-2200
+[VELAS] sub-2200: denoising
+Currently processing for VELAS: sub-2201
+[VELAS] sub-2201: denoising
+  Note: only 3 aCompCor found (requested 5); using available.
+Currently processing for VELAS: sub-2202
+[VELAS] sub-2202: denoising
+  Note: only 3 aCompCor found (requested 5); using available.
+Currently processing for VELAS: sub-2205
+[VELAS] sub-2205: denoising
+Currently processing for VELAS: sub-2206
+[VELAS] sub-2206: denoising
+Currently processing for VELAS: sub-2207
+[VELAS] sub-2207: denoising
+Currently processing for VELAS: sub-2208
+[VELAS] sub-2208: denoising
+  Note: only 4 aCompCor found (requested 5); using available.
+Currently processing for VELAS: sub-2209
+[VELAS] sub-2209: denoising
+Currently processing for VELAS: sub-2210
+[VELAS] sub-2210: denoising
+Currently processing for VELAS: sub-2211
+[VELAS] sub-2211: denoising
+Currently processing for VELAS: sub-2212
+[VELAS] sub-2212: denoising
+Currently processing for VELAS: sub-2215
+[VELAS] sub-2215: denoising
+Currently processing for VELAS: sub-2216
+[VELAS] sub-2216: denoising
+Currently processing for VELAS: sub-2217
+[VELAS] sub-2217: denoising
+Currently processing for VELAS: sub-2218
+[VELAS] sub-2218: denoising
+Currently processing for VELAS: sub-2219
+[VELAS] sub-2219: denoising
+Currently processing for VELAS: sub-2220
+[VELAS] sub-2220: denoising
+Currently processing for VELAS: sub-2221
+[VELAS] sub-2221: denoising
+Currently processing for VELAS: sub-2222
+[VELAS] sub-2222: denoising
+Currently processing for VELAS: sub-2223
+[VELAS] sub-2223: denoising
+Currently processing for VELAS: sub-2224
+[VELAS] sub-2224: denoising
+Currently processing for VELAS: sub-2225
+[VELAS] sub-2225: denoising
+  Note: only 4 aCompCor found (requested 5); using available.
+Currently processing for VELAS: sub-2226
+[VELAS] sub-2226: denoising
+Currently processing for VELAS: sub-2227
+[VELAS] sub-2227: denoising
+Currently processing for VELAS: sub-2228
+[VELAS] sub-2228: denoising
+Currently processing for VELAS: sub-2229
+[VELAS] sub-2229: denoising
+Currently processing for VELAS: sub-2231
+[VELAS] sub-2231: denoising
+  Note: only 4 aCompCor found (requested 5); using available.
+Currently processing for VELAS: sub-2232
+[VELAS] sub-2232: denoising
+Currently processing for VELAS: sub-2235
+[VELAS] sub-2235: denoising
+Currently processing for VELAS: sub-2236
+[VELAS] sub-2236: denoising
+[STRICON] Found 93 subjects
+Currently processing for STRICON: sub-1
+[STRICON] sub-1: denoising
+Currently processing for STRICON: sub-10
+[STRICON] sub-10: denoising
+Currently processing for STRICON: sub-100
+[STRICON] sub-100: denoising
+Currently processing for STRICON: sub-101
+[STRICON] sub-101: denoising
+Currently processing for STRICON: sub-11
+[STRICON] sub-11: denoising
+Currently processing for STRICON: sub-12
+[STRICON] sub-12: denoising
+Currently processing for STRICON: sub-13
+[STRICON] sub-13: denoising
+Currently processing for STRICON: sub-14
+[STRICON] sub-14: denoising
+Currently processing for STRICON: sub-16
+[STRICON] sub-16: denoising
+Currently processing for STRICON: sub-17
+[STRICON] sub-17: denoising
+Currently processing for STRICON: sub-18
+[STRICON] sub-18: denoising
+Currently processing for STRICON: sub-19
+[STRICON] sub-19: denoising
+Currently processing for STRICON: sub-2
+[STRICON] sub-2: denoising
+Currently processing for STRICON: sub-21
+[STRICON] sub-21: denoising
+Currently processing for STRICON: sub-22
+[STRICON] sub-22: denoising
+Currently processing for STRICON: sub-23
+[STRICON] sub-23: denoising
+Currently processing for STRICON: sub-24
+[STRICON] sub-24: denoising
+Currently processing for STRICON: sub-25
+[STRICON] sub-25: denoising
+Currently processing for STRICON: sub-26
+[STRICON] sub-26: denoising
+Currently processing for STRICON: sub-27
+[STRICON] sub-27: denoising
+Currently processing for STRICON: sub-28
+[STRICON] sub-28: denoising
+Currently processing for STRICON: sub-29
+[STRICON] sub-29: denoising
+Currently processing for STRICON: sub-3
+[STRICON] sub-3: denoising
+Currently processing for STRICON: sub-30
+[STRICON] sub-30: denoising
+Currently processing for STRICON: sub-31
+[STRICON] sub-31: denoising
+Currently processing for STRICON: sub-32
+[STRICON] sub-32: denoising
+Currently processing for STRICON: sub-33
+[STRICON] sub-33: denoising
+Currently processing for STRICON: sub-34
+[STRICON] sub-34: denoising
+Currently processing for STRICON: sub-36
+[STRICON] sub-36: denoising
+Currently processing for STRICON: sub-37
+[STRICON] sub-37: denoising
+Currently processing for STRICON: sub-38
+[STRICON] sub-38: denoising
+Currently processing for STRICON: sub-39
+[STRICON] sub-39: denoising
+Currently processing for STRICON: sub-4
+[STRICON] sub-4: denoising
+Currently processing for STRICON: sub-40
+[STRICON] sub-40: denoising
+Currently processing for STRICON: sub-41
+[STRICON] sub-41: denoising
+Currently processing for STRICON: sub-42
+[STRICON] sub-42: denoising
+Currently processing for STRICON: sub-43
+[STRICON] sub-43: denoising
+Currently processing for STRICON: sub-44
+[STRICON] sub-44: denoising
+Currently processing for STRICON: sub-45
+[STRICON] sub-45: denoising
+Currently processing for STRICON: sub-46
+[STRICON] sub-46: denoising
+Currently processing for STRICON: sub-47
+[STRICON] sub-47: denoising
+Currently processing for STRICON: sub-48
+[STRICON] sub-48: denoising
+Currently processing for STRICON: sub-49
+[STRICON] sub-49: denoising
+Currently processing for STRICON: sub-50
+[STRICON] sub-50: denoising
+Currently processing for STRICON: sub-51
+[STRICON] sub-51: denoising
+Currently processing for STRICON: sub-52
+[STRICON] sub-52: denoising
+Currently processing for STRICON: sub-53
+[STRICON] sub-53: denoising
+Currently processing for STRICON: sub-54
+[STRICON] sub-54: denoising
+Currently processing for STRICON: sub-55
+[STRICON] sub-55: denoising
+Currently processing for STRICON: sub-56
+[STRICON] sub-56: denoising
+Currently processing for STRICON: sub-57
+[STRICON] sub-57: denoising
+Currently processing for STRICON: sub-59
+[STRICON] sub-59: denoising
+Currently processing for STRICON: sub-6
+[STRICON] sub-6: denoising
+Currently processing for STRICON: sub-60
+[STRICON] sub-60: denoising
+Currently processing for STRICON: sub-61
+[STRICON] sub-61: denoising
+Currently processing for STRICON: sub-62
+[STRICON] sub-62: denoising
+Currently processing for STRICON: sub-63
+[STRICON] sub-63: denoising
+Currently processing for STRICON: sub-64
+[STRICON] sub-64: denoising
+Currently processing for STRICON: sub-65
+[STRICON] sub-65: denoising
+Currently processing for STRICON: sub-66
+[STRICON] sub-66: denoising
+Currently processing for STRICON: sub-67
+[STRICON] sub-67: denoising
+Currently processing for STRICON: sub-68
+[STRICON] sub-68: denoising
+Currently processing for STRICON: sub-69
+[STRICON] sub-69: denoising
+Currently processing for STRICON: sub-7
+[STRICON] sub-7: denoising
+Currently processing for STRICON: sub-70
+[STRICON] sub-70: denoising
+Currently processing for STRICON: sub-71
+[STRICON] sub-71: denoising
+Currently processing for STRICON: sub-72
+[STRICON] sub-72: denoising
+Currently processing for STRICON: sub-73
+[STRICON] sub-73: denoising
+Currently processing for STRICON: sub-74
+[STRICON] sub-74: denoising
+Currently processing for STRICON: sub-75
+[STRICON] sub-75: denoising
+Currently processing for STRICON: sub-76
+[STRICON] sub-76: denoising
+Currently processing for STRICON: sub-77
+[STRICON] sub-77: denoising
+Currently processing for STRICON: sub-78
+[STRICON] sub-78: denoising
+Currently processing for STRICON: sub-79
+[STRICON] sub-79: denoising
+Currently processing for STRICON: sub-80
+[STRICON] sub-80: denoising
+Currently processing for STRICON: sub-82
+[STRICON] sub-82: denoising
+Currently processing for STRICON: sub-83
+[STRICON] sub-83: denoising
+Currently processing for STRICON: sub-85
+[STRICON] sub-85: denoising
+Currently processing for STRICON: sub-86
+[STRICON] sub-86: denoising
+Currently processing for STRICON: sub-87
+[STRICON] sub-87: denoising
+Currently processing for STRICON: sub-88
+[STRICON] sub-88: denoising
+Currently processing for STRICON: sub-89
+[STRICON] sub-89: denoising
+Currently processing for STRICON: sub-9
+[STRICON] sub-9: denoising
+Currently processing for STRICON: sub-90
+[STRICON] sub-90: denoising
+Currently processing for STRICON: sub-91
+[STRICON] sub-91: denoising
+Currently processing for STRICON: sub-92
+[STRICON] sub-92: denoising
+Currently processing for STRICON: sub-93
+[STRICON] sub-93: denoising
+Currently processing for STRICON: sub-94
+[STRICON] sub-94: denoising
+Currently processing for STRICON: sub-95
+[STRICON] sub-95: denoising
+Currently processing for STRICON: sub-96
+[STRICON] sub-96: denoising
+Currently processing for STRICON: sub-97
+[STRICON] sub-97: denoising
+Currently processing for STRICON: sub-98
+[STRICON] sub-98: denoising
+Currently processing for STRICON: sub-99
+[STRICON] sub-99: denoising
+[STRICON] Done. OK=93, Skipped=0, Failed=0
+Currently processing for VELAS: sub-2237
+[VELAS] sub-2237: denoising
+Currently processing for VELAS: sub-2238
+[VELAS] sub-2238: denoising
+Currently processing for VELAS: sub-2239
+[VELAS] sub-2239: denoising
+Currently processing for VELAS: sub-2240
+[VELAS] sub-2240: denoising
+Currently processing for VELAS: sub-2243
+[VELAS] sub-2243: denoising
+Currently processing for VELAS: sub-2245
+[VELAS] sub-2245: denoising
+[VELAS] Done. OK=116, Skipped=0, Failed=0
+VELAS: completed successfully.
+STRICON: completed successfully.
