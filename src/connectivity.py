@@ -46,7 +46,7 @@ def find_denoised_bold(sub_dir: Path) -> Path:
     return cand[0]
 
 
-def extract_sphere_timeseries(img_path: Path, rois: pd.DataFrame, radius_mm: float = 6.0) -> np.ndarray:
+def extract_sphere_timeseries(img_path: Path, rois: pd.DataFrame, radius_mm: float) -> np.ndarray:
     """
     Returns ts shape (T, R)
     """
@@ -101,7 +101,7 @@ def iter_subject_dirs(root: Path) -> list[Path]:
     return sorted({p for p in root.rglob("sub-*") if p.is_dir()})
 
 
-def run_dataset(preproc_root: str, roi_csv: str, overwrite: bool, radius_mm: float = 6.0):
+def run_dataset(preproc_root: str, roi_csv: str, overwrite: bool, radius_mm: float):
     root = Path(preproc_root)
     if not root.exists():
         raise FileNotFoundError(f"Preproc folder not found: {root}")
