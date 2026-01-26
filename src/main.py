@@ -5,6 +5,8 @@ from fmri_denoise import denoise_dataset
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from process_excel_file import build_roi_dataframe
 from connectivity import run_dataset
+from group_stats import load_groups_from_excel, load_fc_dataset, stats_stricon, stats_velas
+import pandas as pd
 from pathlib import Path
 
 
@@ -23,6 +25,8 @@ def main():
     parser.add_argument("--preproc", action="store_true", help = "Does minimal pre-processing on the data")
     parser.add_argument("--out_csv",action="store_true", help="Optional path to save expanded CSV")
     parser.add_argument("--connectivity",action="store_true", help = "Find the seed based correlation between regions" )
+    parser.add_argument("--load_scores",type = str, help = "Load Behaviour scores" )
+    parser.add_argument("--stats",action="store_true", help = "Find the seed based correlation between regions" )
     
 
     args = parser.parse_args()
@@ -118,6 +122,36 @@ def main():
 
         print(f"processing for VELAS Data")
         run_dataset(preproc_root=cfg['velas_preproc_folder'], roi_csv=cfg['roi_csv_file'],overwrite = True,radius_mm=6)
+
+    if args.stats:
+
+        print(f'Loading behaviour scores')
+        stricon_groups = load_groups_from_excel(args.load_scores, sheet="STRICON", group_col="Group")
+        velas_groups = load_groups_from_excel(args.load_scores, sheet="VELAS", group_col="group")
+
+        s_subs, s_rois, s_mats = load_fc_dataset(cfg['stricon_preproc_folder'])
+        v_subs, v_rois, v_mats = load_fc_dataset(cfg['velas_preproc_folder'])
+
+        # Sanity: ROI list must match across datasets for comparable edges
+        if list(s_rois) != list(v_rois):
+            print("WARNING: ROI order differs between datasets. Stats will still run separately, but edges won't align across studies.")
+
+        # Run stats
+        res_s = stats_stricon(s_subs, s_mats, s_rois, stricon_groups)
+        res_v = stats_velas(v_subs, v_mats, v_rois, velas_groups)
+
+        # Save
+        res_s.to_csv(cfg['out_dir'] / "stricon_patients_vs_healthy_edges.csv", index=False)
+        res_v.to_csv(cfg['out_dir'] / "velas_trend_ls_hs_patient_edges.csv", index=False)
+
+        # Quick top hits
+        print("\nTop STRICON edges (lowest q_fdr):")
+        print(res_s.head(10)[["roi_a","roi_b","direction","diff_pat_minus_hc","p","q_fdr"]].to_string(index=False))
+
+        print("\nTop VELAS edges (lowest q_fdr_slope):")
+        print(res_v.head(10)[["roi_a","roi_b","direction","slope_z","p_slope_z","q_fdr_slope"]].to_string(index=False))
+
+
 
 
 
